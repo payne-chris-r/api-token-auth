@@ -27,20 +27,18 @@ Web APIs often require some sort of authentication.  The game API requires users
  to register and then login to gain an authentication token.
 
 We'll use `curl`, `httpbin.org`, and `jQuery.ajax` to explore HTTP further.
-The we'l connect to an authenticated API, [library-api](https://github.com/ga-wdi-boston/library-api).
+The we'll connect to an authenticated API, [library-api](https://github.com/ga-wdi-boston/library-api).
 
 The operations we'll perform:
 
-| verb   | path                   | parameters |
-| ----   | ----                   | ---------- |
-| POST   | `/sign-up`             | `credentials` containing `email`, `password`, `password_confirmation` |
+| verb   | path                   | parameters                                                                    |
+|--------|------------------------|-------------------------------------------------------------------------------|
+| POST   | `/sign-up`             | `credentials` containing `email`, `password`, `password_confirmation`         |
 | POST   | `/sign-in`             | `credentials` containing `email` and `password` (response contains auth data) |
-| PATCH  | `/change-password/:id` | `passwords` containing `old` and `new` (requires Authorization header) |
-| DELETE | `/sign-out/:id`        | None (requires Authorization header) |
+| PATCH  | `/change-password/:id` | `passwords` containing `old` and `new` (requires Authorization header)        |
+| DELETE | `/sign-out/:id`        | None (requires Authorization header)                                          |
 
-### Registering with the API
-
-#### Demonstration
+### Demo: Registering with the API
 
 First we'll test our command against an echo server to make sure we're sending
  the right data.
@@ -55,7 +53,7 @@ We'll see how the server treats both ways of sending data (it's all just
 If we left out the `--include` flag we wouldn't see the response header.
 What's the benefit of using an echo server?
 
-#### Code along
+#### Code along: Registering with the API
 
 Next we'll want to actually register with the API.
 
@@ -66,17 +64,15 @@ We'll modify `scripts/sign-up[-json].sh` to connect to the `library-api`.
 Now let's put code into `assests/scripts/auth/*` to get another "e-mail"
  address registered with the API.  We'll again start with the echo server.
 
-### Logging into the API
-
-#### Demonstration
+### Demo: Logging into the API
 
 We'll use `scripts/sign-in-json.sh`.
 
-#### Code along
+#### Code along: Logging into the API
 
 Now with url encoded data in `scripts/sign-in.sh`.
 
-#### Lab
+#### Lab: Login
 
 Add a form to `index.html` and code to `assets/scripts/auth/*` to login to
  the API.
@@ -84,15 +80,13 @@ You may want to start by using the echo service to check your request.
 
 What should we do with the data returned by the API?
 
-### Changing the password
-
-#### Code along
+### Code along: Changing the password
 
 We'll use `scripts/change-password[-json].sh` to change a password.
 After that we'll verify that we can no longer authenticate using the old
  password.
 
-#### Lab
+#### Lab: Changing Password
 
 Add a change password form to `index.html` and code to
  `assets/scripts/auth/*` to change the password.
@@ -101,12 +95,12 @@ Add a change password form to `index.html` and code to
 
 Signing out invalidates the the current token.
 
-#### Code along
+#### Code Along: Signing out
 
 We'll use `scripts/sign-out.sh` to sign out of the API.
 We'll verify that the token we used is no longer valid.
 
-#### Lab
+#### Lab: Signing out
 
 Add a sign out form to `index.html` and code to `assets/scripts/auth/*` to
  sign out of the API.
